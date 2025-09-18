@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: nextjs-mock-shop
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+    healthCheckPath: /api/health
